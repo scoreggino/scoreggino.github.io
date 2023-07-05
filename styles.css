@@ -2,6 +2,47 @@
   global styles
 ===============*/
 
+@keyframes top-dark {
+  0% {
+    transform: translateX(15px) translateY(-100px) rotate(-2deg);
+  }
+
+  100% {
+    transform: translateX(-15px) translateY(100px) rotate(5deg);
+  }
+}
+
+@keyframes top-light {
+  0% {
+    border: 2px solid red;
+  }
+
+  100% {
+    border: 2px solid blue;
+  }
+}
+
+@keyframes bot-dark {
+  0% {
+    border: 2px solid red;
+  }
+
+  100% {
+    border: 2px solid blue;
+  }
+}
+
+@keyframes bot-light {
+  0% {
+    border: 2px solid red;
+  }
+
+  100% {
+    border: 2px solid blue;
+  }
+}
+
+
 * {
   padding: 0;
   margin: 0;
@@ -347,6 +388,26 @@ main {
   transition: transform 0.2s ease-in-out;
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.profile-image img {
+  width: 25vw;
+  border-radius: 25px;
+}
+
+.profile .right {
+  padding: 0 30px;
+}
+
+
+.about__role {
+  color: var(--clr-primary);
+  font-size: 2.2rem;
+}
 
 .top-abstract.dark-abstract {
   position: fixed;
@@ -378,26 +439,31 @@ main {
   transform: rotate(260deg) scale(1.5);
 }
 
-.profile-image img {
-  width: 25vw;
-  border-radius: 25px;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.profile .right {
-  padding: 0 30px;
+.top-abstract svg,
+.bottom-abstract svg {
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
 }
 
 
-.about__role {
-  color: var(--clr-primary);
-  font-size: 2.2rem;
+.top-abstract.dark-abstract svg {
+  animation-name: top-dark;
 }
+
+.top-abstract.light-abstract svg {
+  animation-name: top-light;
+}
+
+.bottom-abstract.dark-abstract svg {
+  animation-name: bot-dark;
+}
+
+.bottom-abstract.light-abstract svg {
+  animation-name: bot-light;
+}
+
 
 
 @media (max-width: 600px) {
